@@ -29,7 +29,6 @@ def confusion_matrix_info(y_true, y_pred, labels=['normal', 'bacteria', 'viral',
 
 
 def train():
-    import keras
     x = np.load('data/x_train.npy')
     y = np.load('data/y_train.npy')
     y = tf.keras.utils.to_categorical(y, 4)
@@ -51,16 +50,8 @@ def test():
     confusion_matrix_info(yt, np.argmax(y_pred, axis=1),title='confusion_matrix_test')
 
 
-def test2():
-    model = tf.keras.models.load_model('model.h5')
-    xt = np.load('data/x_train.npy')
-    yt = np.load('data/y_train.npy')
-    y_pred = model.predict(xt)
-    confusion_matrix_info(yt, np.argmax(y_pred, axis=1),title='confusion_matrix_train')
-
-
 
 
 if __name__ == '__main__':
-    # train()
-    test2()
+    train()
+    test()
