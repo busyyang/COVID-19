@@ -3,7 +3,8 @@ This repo is inspired by [lindawangg/COVID-Net](https://github.com/lindawangg/CO
 
 All details of model can be found in [paper](assets/COVID_Net.pdf) for [lindawangg/COVID-Net](https://github.com/lindawangg/COVID-Net). 
 
-Notice: This is **not** 100% implement of model in paper. The conv1x1 part is omitted, only the main line with input-> PEPXx.x -> output left.
+~~Notice: This is **not** 100% implement of model in paper. The conv1x1 part is omitted, only the main line with input-> PEPXx.x -> output left.~~
+2020/4/2: Code for model-building has updated.
 
 I trained this model in 100 epoch with result of 100% accuracy and recall in training set, but ~65% in test set. It is overfited obviously.
 
