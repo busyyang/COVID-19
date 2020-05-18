@@ -1,11 +1,11 @@
 import tensorflow.keras as keras
-from tensorflow.keras.layers import Conv2D, Input, MaxPool2D, add, Flatten, Dense, SeparableConv2D
+from tensorflow.keras.layers import Conv2D, Input, MaxPool2D, add, Flatten, Dense, DepthwiseConv2D
 
 
 def PEPXModel(input_tensor, filters, name):
     x = Conv2D(filters=filters, kernel_size=(1, 1), activation='relu', name=name + 'FP')(input_tensor)
     x = Conv2D(filters=filters, kernel_size=(1, 1), activation='relu', name=name + 'Expansion')(x)
-    x = SeparableConv2D(filters=filters, kernel_size=(3, 3), activation='relu', padding='same', name=name + 'DWConv3_3')(x)
+    x = DepthwiseConv2D(kernel_size=(3, 3), activation='relu', padding='same', name=name + 'DWConv3_3')(x)
     x = Conv2D(filters=filters, kernel_size=(1, 1), activation='relu', name=name + 'SP')(x)
     x = Conv2D(filters=filters, kernel_size=(1, 1), activation='relu', name=name + 'Extension')(x)
     return x
